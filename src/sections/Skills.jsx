@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 const Skills = () => {
   const skillCategories = [
     {
-      title: 'Frontend Development',
+      title: 'Frontend',
       color: 'text-blue-500',
       skills: [
         'React.js',
@@ -14,7 +14,16 @@ const Skills = () => {
       ]
     },
     {
-      title: 'Backend Development',
+      title: 'Database Management',
+      color: 'text-blue-500',
+      skills: [
+        'MongoDB',
+        'SQL',
+        'Supabase'        
+      ]
+    },
+    {
+      title: 'Backend',
       color: 'text-blue-500',
       skills: [
         'Node.js',
@@ -22,15 +31,6 @@ const Skills = () => {
         'REST APIs',
         'Socket.IO',
         'JWT Auth'
-      ]
-    },
-    {
-      title: 'Database Management',
-      color: 'text-blue-500',
-      skills: [
-        'MongoDB',
-        'SQL',
-        'Supabase'        
       ]
     },
      {
