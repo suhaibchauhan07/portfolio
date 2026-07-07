@@ -7,7 +7,7 @@ const Projects = () => {
     {
       title: 'Online Aptitude Test Platform',
       description: 'A web-based platform that allows users to take aptitude tests online, view results instantly, and improve their preparation.',
-      tech: ['React', 'Node.js', 'Express', 'Supabase', 'Tailwind CSS'],
+      tech: ['React', 'Node.js', 'Express', 'MongoDB'],
       image: '/aptitude.png',
       liveLink: 'https://online-aptitude-test-platform.vercel.app/',
       githubLink: 'https://github.com/suhaibchauhan07/Online-Aptitude-test-platform',
@@ -16,10 +16,19 @@ const Projects = () => {
     {
       title: 'Real-Time Chat Application',
       description: 'Real-time messaging application that enables users to communicate instantly using WebSocket technology.',
-      tech: ['React', 'Node.js', 'Express', 'Socket.IO', 'Tailwind CSS'],
+      tech: ['React', 'Node.js', 'Express', 'Socket.IO'],
       image: '/chat-app.png',
       liveLink: 'https://chat-app-ten-mu-49.vercel.app/login',
       githubLink: 'https://github.com/suhaibchauhan07',
+      featured: false
+    },
+      {
+      title: 'Serenia Parfums – Perfume E-Commerce Platform',
+      description: 'A modern perfume e-commerce platform that allows users to explore premium fragrances, view product details, and enjoy a seamless shopping experience through an elegant and responsive interface.',
+      tech: ['React', 'Node.js', 'Express', 'Supabase', 'Tailwind CSS'],
+      image: '/Serenia-Parfums.png',
+      liveLink: 'https://serenia-parfums-frontend.onrender.com/',
+      githubLink: 'https://github.com/suhaibchauhan07/serenia-parfums',
       featured: false
     }
   ]
