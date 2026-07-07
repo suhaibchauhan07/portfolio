@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { FiMail, FiGithub, FiLinkedin } from 'react-icons/fi'
+import { supabase } from '../lib/supabase'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,16 +11,24 @@ const Contact = () => {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitSuccess, setSubmitSuccess] = useState(false)
+  const [submitError, setSubmitError] = useState(null)
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setSubmitError(null)
     
-    setTimeout(() => {
+    try {
+      const { error } = await supabase
+        .from('contact')
+        .insert([formData])
+      
+      if (error) throw error
+
       setIsSubmitting(false)
       setSubmitSuccess(true)
       setFormData({ name: '', email: '', subject: '', message: '' })
@@ -27,7 +36,11 @@ const Contact = () => {
       setTimeout(() => {
         setSubmitSuccess(false)
       }, 3000)
-    }, 1500)
+    } catch (err) {
+      console.error(err)
+      setIsSubmitting(false)
+      setSubmitError(err.message)
+    }
   }
 
   const contactInfo = [
@@ -126,6 +139,11 @@ const Contact = () => {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
+                    {submitError && (
+                      <div className="p-4 bg-red-500/20 border border-red-500/50 rounded-2xl text-red-300">
+                        {submitError}
+                      </div>
+                    )}
                     <div>
                       <label className="block text-sm font-bold text-gray-300 mb-3">Name</label>
                       <input
